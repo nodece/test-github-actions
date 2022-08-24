@@ -1,0 +1,22 @@
+name: Documentation Bot
+on:
+  pull_request_target :
+    types:
+      - opened
+      - edited
+      - labeled
+      - unlabeled
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  label:
+    permissions:
+      pull-requests: write 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        run: echo 1
+        
