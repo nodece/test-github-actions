@@ -18,5 +18,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout action
-        run: echo ${{ github.event.number }}
+        run: sleep 20 && echo ${{ github.event.number }}
 
