@@ -1,4 +1,5 @@
 name: Documentation Bot
+
 on:
   pull_request_target :
     types:
@@ -17,6 +18,9 @@ jobs:
       pull-requests: write 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout action
-        run: sleep 20 && echo ${{ github.event.number }}
-
+      - name: Labeling
+        uses: nodece/pulsar-test-infra/docbot@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LABEL_WATCH_LIST: 'doc,doc-required,doc-not-needed,doc-complete'
+          LABEL_MISSING: 'doc-label-missing'
