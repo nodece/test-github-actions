@@ -31,4 +31,5 @@ jobs:
         run: | 
           pip --version
           pip list
+          pip install wheel
           wheel
