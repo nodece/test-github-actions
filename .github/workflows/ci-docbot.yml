@@ -15,7 +15,7 @@ concurrency:
 jobs:
   label:
     permissions:
-      pull-requests: write 
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Labeling
@@ -27,5 +27,8 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - run: wheel
-          
+      - name: test
+        run: | 
+          pip --version
+          pip list
+          wheel
