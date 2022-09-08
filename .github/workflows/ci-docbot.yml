@@ -24,12 +24,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LABEL_WATCH_LIST: 'doc,doc-required,doc-not-needed,doc-complete'
           LABEL_MISSING: 'doc-label-missing'
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-      - name: test
-        run: | 
-          pip --version
-          pip list
-          pip install wheel
-          wheel
