@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test echo
-        run: echo $GITHUB_EVENT_PATH
+        run: cat $GITHUB_EVENT_PATH
       - name: Labeling
         uses: nodece/pulsar-test-infra/docbot@master
         env:
