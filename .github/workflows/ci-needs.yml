@@ -1,0 +1,32 @@
+name: Checkout Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test1:
+    outputs:
+      release-version: ${{ steps.test1-a.outputs.RELEASE_VERSION }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: test1-a
+        run: echo "RELEASE_VERSION=a" >> "$GITHUB_OUTPUT"
+  
+
+  test2:
+    needs: test1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $RELEASE_VERSION
+        env:
+          RELEASE_VERSION: ${{ needs.test1.outputs.release-version }}
+
+
+  
+  test3:
+    needs: [test1, test2]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $RELEASE_VERSION
+        env:
+          RELEASE_VERSION: ${{ needs.test1.outputs.release-version }}
