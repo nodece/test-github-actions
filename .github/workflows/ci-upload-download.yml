@@ -1,0 +1,23 @@
+name: Documentation Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: tree .
+      - uses: actions/checkout@v3
+      - run: tree .
+      - uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: |
+            a/one.txt
+            b/two.txt
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: c
+      - run: tree .
