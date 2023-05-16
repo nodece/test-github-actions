@@ -9,15 +9,20 @@ jobs:
     steps:
       - run: tree .
       - uses: actions/checkout@v3
+        with:
+          path: repo1
       - run: tree .
+       - uses: actions/checkout@v3
+        with:
+          path: repo2
       - uses: actions/upload-artifact@v3
         with:
           name: dist
           path: |
-            a/one.txt
-            b/two.txt
+            repo1/a/one.txt
+            repo1/a/two.txt
       - uses: actions/download-artifact@v3
         with:
           name: dist
-          path: c
+          path: repo2
       - run: tree .
