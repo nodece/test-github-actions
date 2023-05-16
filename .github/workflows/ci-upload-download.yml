@@ -23,5 +23,5 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
-          path: repo2
+          path: repo2/a
       - run: tree .
