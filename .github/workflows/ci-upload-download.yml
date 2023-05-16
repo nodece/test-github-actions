@@ -1,4 +1,4 @@
-name: Documentation Bot
+name: Upload Download Test
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ jobs:
         with:
           path: repo1
       - run: tree .
-       - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           path: repo2
       - uses: actions/upload-artifact@v3
