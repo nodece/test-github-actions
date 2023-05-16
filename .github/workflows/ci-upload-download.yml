@@ -21,6 +21,7 @@ jobs:
           path: |
             repo1/a/one.txt
             repo1/a/two.txt
+            repo1/b/*
       - uses: actions/download-artifact@v3
         with:
           name: dist
