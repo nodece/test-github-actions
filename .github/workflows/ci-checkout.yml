@@ -10,4 +10,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.base_ref }}"
+      - name: branch-3.0
+        run: echo "${{ github.event.base_ref }}"
