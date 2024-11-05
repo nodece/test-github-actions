@@ -2,17 +2,12 @@ name: Checkout Test
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - "**"
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: tree .
-      - uses: actions/checkout@v3
-        with:
-          path: a
-      - run: tree .
-      - uses: actions/checkout@v3
-        with:
-          path: b
-      - run: tree .
+      - run: echo "${{ github.event.base_ref }}"
